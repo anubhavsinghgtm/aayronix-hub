@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CallToAction from '../../components/CallToAction.astro';
+
+const features = [
+  {
+    title: "Cloud Migration",
+    list: [
+      "Seamless migration from legacy systems to cloud platforms.",
+      "Minimal downtime with phased migration strategies.",
+      "Support for hybrid, public, and private cloud environments.",
+      "Vendor-agnostic expertise (AWS, Microsoft Azure, Google Cloud, Oracle)."
+    ]
+  },
+  {
+    title: "Compliance & Security",
+    list: [
+      "Governance, Risk, and Compliance frameworks tailored to your industry.",
+      "Regulatory compliance support (GDPR, HIPAA, SOC 2, ISO).",
+      "Multi-layered cybersecurity strategies to protect sensitive data.",
+      "Ongoing monitoring to ensure secure operations."
+    ]
+  },
+  {
+    title: "Scalability & Flexibility",
+    list: [
+      "Elastic infrastructure to handle fluctuating demand.",
+      "Cloud-native applications for faster innovation.",
+      "IoT and AI integration for smarter operations.",
+      "Disaster recovery and business continuity built into every solution."
+    ]
+  },
+  {
+    title: "Cost Optimization",
+    list: [
+      "Predictable cost structures with pay-as-you-go models.",
+      "Resource utilization analysis to eliminate waste.",
+      "Automated scaling to reduce unnecessary expenses.",
+      "ROI-focused strategies for long-term sustainability."
+    ]
+  }
+];
+---
+
+<BaseLayout title="Cloud Transformation | Aayronix Hub">
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="page-hero text-center">
+    <div class="container animate-fade-in">
+      <span class="badge">Cloud & Digital</span>
+      <h1 class="title text-gradient">Cloud Transformation</h1>
+      <p class="subtitle">Modernize Your IT Infrastructure with Confidence. The cloud is no longer optional—it’s the foundation of modern business. We help organizations migrate, optimize, and scale securely and efficiently.</p>
+    </div>
+  </section>
+
+  <!-- Details Grid -->
+  <section class="section" style="padding-top: 0">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: var(--spacing-12)">
+        <h2>Our Cloud Services</h2>
+        <p style="color: var(--color-text-muted);">Vendor-agnostic expertise across startups, mid-market, and Fortune 100.</p>
+      </div>
+      
+      <div class="details-grid">
+        {features.map((feature, idx) => (
+          <div class="details-card glass animate-fade-in" style={`animation-delay: ${idx * 0.1}s`}>
+            <h3>{feature.title}</h3>
+            <ul class="custom-list">
+              {feature.list.map(item => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+  <Footer />
+</BaseLayout>
+
+<style>
+  .text-center { text-align: center; }
+
+  .page-hero {
+    padding-top: 160px;
+    padding-bottom: var(--spacing-16);
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(110, 231, 183, 0.1);
+    color: var(--color-accent);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-6);
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    margin-bottom: var(--spacing-4);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .subtitle {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--color-text-muted);
+  }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-8);
+  }
+
+  .details-card {
+    padding: var(--spacing-8);
+    border-radius: var(--radius-lg);
+    border-top: 4px solid var(--color-primary);
+    transition: var(--transition);
+  }
+
+  .details-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent);
+  }
+
+  .details-card h3 {
+    margin-bottom: var(--spacing-6);
+    color: var(--color-text);
+  }
+
+  .custom-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .custom-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .custom-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+</style>

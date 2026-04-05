@@ -1,0 +1,115 @@
+---
+// CallToAction.astro
+---
+
+<section id="contact" class="section cta-global">
+  <div class="container container-cta glass animate-fade-in">
+    <div class="cta-content">
+      <h2 class="title text-gradient">Partner With Aayronix Hub</h2>
+      <p class="subtitle">Grow smarter | Innovate faster | Build the future with us.</p>
+      
+      <div class="features">
+        <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Smart technology, scalable teams</span>
+        <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Innovation powered by people</span>
+        <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Secure, agile, future-ready solutions</span>
+      </div>
+      
+      <div class="cta-buttons">
+        <a href="/contact" class="btn btn-primary">Let’s Build Success Together</a>
+        <a href="/contact" class="btn glass">Start Your Growth Journey</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-global {
+    padding-bottom: var(--spacing-24);
+  }
+
+  .container-cta {
+    padding: var(--spacing-16);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+  }
+
+  /* Decorative glowing orb */
+  .container-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+    opacity: 0.15;
+    z-index: -1;
+  }
+
+  .title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--spacing-4);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-8);
+  }
+
+  .features {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-8);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-12);
+  }
+
+  .features span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text);
+  }
+
+  .features svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-accent);
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-6);
+  }
+
+  @media (max-width: 768px) {
+    .container-cta {
+      padding: var(--spacing-8);
+    }
+    
+    .features {
+      flex-direction: column;
+      gap: var(--spacing-4);
+      align-items: center;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+</style>

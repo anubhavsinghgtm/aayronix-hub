@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Contact Us | Aayronix Hub">
+  <Header />
+
+  <main class="contact-page container">
+    <div class="contact-header text-center animate-fade-in">
+      <h1 class="title">Let's Build Success <span class="text-gradient">Together</span></h1>
+      <p class="subtitle">Have a project in mind, need specialized talent, or want to explore our IT solutions? Drop us a message and our team will get back to you shortly.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Contact Information Panel -->
+      <div class="contact-info glass animate-fade-in" style="animation-delay: 0.2s">
+        <h3>Reach Out Directly</h3>
+        <p>If you prefer to email or call us directly, here is our contact information.</p>
+        
+        <div class="info-block">
+          <strong>General Inquiries</strong>
+          <a href="mailto:hello@aayronixhub.com">hello@aayronixhub.com</a>
+        </div>
+        
+        <div class="info-block">
+          <strong>Sales & Partnerships</strong>
+          <a href="mailto:sales@aayronixhub.com">sales@aayronixhub.com</a>
+        </div>
+
+        <div class="info-block">
+          <strong>Phone</strong>
+          <a href="tel:+1234567890">+1 (234) 567-890</a>
+        </div>
+      </div>
+
+      <!-- Contact Form Panel -->
+      <div class="contact-form-wrapper glass animate-fade-in" style="animation-delay: 0.3s">
+        <form action="#" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="John Doe" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Work Email</label>
+            <input type="email" id="email" name="email" required placeholder="john@company.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Reason for Inquiry</label>
+            <select id="subject" name="subject" required>
+              <option value="" disabled selected>Select an option...</option>
+              <option value="cloud">Cloud & Digital Transformation</option>
+              <option value="cybersecurity">Cybersecurity Solutions</option>
+              <option value="staffing">Staff Augmentation & RPO</option>
+              <option value="ai">AI & Data Analytics</option>
+              <option value="other">Other / General Inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your goals..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .contact-page {
+    padding-top: 160px; /* offset for fixed header */
+    padding-bottom: var(--spacing-24);
+    min-height: 80vh;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .contact-header {
+    max-width: 700px;
+    margin: 0 auto var(--spacing-16) auto;
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    margin-bottom: var(--spacing-4);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-8);
+  }
+
+  .contact-info, .contact-form-wrapper {
+    padding: var(--spacing-8);
+    border-radius: var(--radius-lg);
+  }
+
+  .contact-info h3 {
+    margin-bottom: var(--spacing-4);
+  }
+
+  .contact-info p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-8);
+    font-size: 0.875rem;
+  }
+
+  .info-block {
+    margin-bottom: var(--spacing-6);
+  }
+
+  .info-block strong {
+    display: block;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-1);
+    font-size: 0.875rem;
+  }
+
+  .info-block a {
+    color: var(--color-primary);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .info-block a:hover {
+    color: var(--color-accent);
+  }
+
+  /* Form Styling */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+  }
+
+  label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    background: rgba(15, 23, 42, 0.5); /* darker inputs inside glass panel */
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: var(--transition);
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Fix for select dropdown options defaulting to white in some browsers */
+  select option {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.125rem;
+    margin-top: var(--spacing-4);
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

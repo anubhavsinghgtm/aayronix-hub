@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CallToAction from '../../components/CallToAction.astro';
+
+const features = [
+  {
+    title: "Staff Augmentation",
+    list: [
+      "Contract, Contract-to-Hire, Direct Hire, Subcontracting.",
+      "Rapid ramp-up to meet deadlines.",
+      "Access to global IT talent (Java, Python, AWS, SAP).",
+      "Reduced recruiting costs and liabilities."
+    ]
+  },
+  {
+    title: "Executive Search",
+    list: [
+      "Decades of experience in executive recruitment.",
+      "In-depth cultural and mindset fit analysis.",
+      "Attractive compensation package design.",
+      "Rigorous screening, interviews, and reference checks."
+    ]
+  },
+  {
+    title: "Recruitment Process Outsourcing (RPO)",
+    list: [
+      "Project-Specific Hiring Solutions for urgent demands.",
+      "Client-Branded Media Strategies & Employer branding campaigns.",
+      "Dedicated Recruitment Staff acting as your HR extension.",
+      "Full or Partial HR Management & full-cycle recruitment."
+    ]
+  },
+  {
+    title: "Project-Based Staffing",
+    list: [
+      "Dedicated teams assembled for specific initiatives.",
+      "Agile staffing models to scale quickly.",
+      "Expertise in cloud, AI, and cybersecurity projects.",
+      "Seamless integration with client workflows."
+    ]
+  },
+  {
+    title: "Payroll Services",
+    list: [
+      "Weekly payroll with custom online portal.",
+      "Benefits, medical, vision & dental coverage.",
+      "ACA-compliant contributory plans.",
+      "Quick onboarding & scalable solutions."
+    ]
+  }
+];
+---
+
+<BaseLayout title="Staff Augmentation | Aayronix Hub">
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="page-hero text-center">
+    <div class="container animate-fade-in">
+      <span class="badge">Talent Solutions</span>
+      <h1 class="title text-gradient">Recruitment & Staffing</h1>
+      <p class="subtitle">Connecting Businesses with the Right Talent. From project-based scaling to executive search and full RPO, we provide flexible solutions designed to meet specialized skill requirements quickly and effectively.</p>
+    </div>
+  </section>
+
+  <!-- Details Grid -->
+  <section class="section" style="padding-top: 0">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: var(--spacing-12)">
+        <h2>Comprehensive Recruitment Options</h2>
+        <p style="color: var(--color-text-muted);">Organisational Agility, Lower Costs, and Expanded Expertise for over 20 years.</p>
+      </div>
+      
+      <div class="details-grid">
+        {features.map((feature, idx) => (
+          <div class="details-card glass animate-fade-in" style={`animation-delay: ${idx * 0.1}s`}>
+            <h3>{feature.title}</h3>
+            <ul class="custom-list">
+              {feature.list.map(item => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+  <Footer />
+</BaseLayout>
+
+<style>
+  .text-center { text-align: center; }
+  .page-hero { padding-top: 160px; padding-bottom: var(--spacing-16); }
+  .badge { display: inline-block; padding: 0.25rem 0.75rem; background: rgba(110, 231, 183, 0.1); color: var(--color-accent); border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 600; margin-bottom: var(--spacing-6); }
+  .title { font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: var(--spacing-4); }
+  .text-gradient { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .subtitle { font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: var(--color-text-muted); }
+  .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--spacing-8); }
+  .details-card { padding: var(--spacing-8); border-radius: var(--radius-lg); border-top: 4px solid var(--color-primary); transition: var(--transition); }
+  .details-card:hover { transform: translateY(-5px); border-color: var(--color-accent); }
+  .details-card h3 { margin-bottom: var(--spacing-6); color: var(--color-text); }
+  .custom-list { list-style: none; padding: 0; margin: 0; }
+  .custom-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; }
+  .custom-list li::before { content: '→'; position: absolute; left: 0; color: var(--color-primary); font-weight: 600; }
+</style>

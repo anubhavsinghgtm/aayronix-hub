@@ -1,0 +1,275 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<BaseLayout title="About Us | Aayronix Hub">
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="about-hero text-center">
+    <div class="container animate-fade-in">
+      <span class="badge">Welcome to Aayronix Hub</span>
+      <h1 class="title">Delivering Real Impact Through <span class="text-gradient">Talent & Technology</span></h1>
+      <p class="subtitle">With over 30 years of combined experience, our founders lead Aayronix Hub in delivering scalable solutions. We help businesses innovate and stay ahead because we understand the pulse and needs of today’s organizations.</p>
+    </div>
+  </section>
+
+  <!-- About and Vision Grid -->
+  <section class="section">
+    <div class="container about-grid">
+      <div class="glass padding-box animate-fade-in" style="animation-delay: 0.1s;">
+        <h2 style="margin-bottom: var(--spacing-4)">About Us</h2>
+        <p>Aayronix Hub is a forward-looking IT consultancy and staffing firm dedicated to transforming workforce solutions and technology services. With deep expertise in digital transformation, cloud computing, ERP implementation, data analytics, cyber security, and AI/GenAI, we deliver both contingent and permanent workforce solutions backed by strategic advisory services.</p>
+        <br>
+        <p>Our hallmark is hassle-free talent delivery, building scalable teams, and accelerating business growth through strategic workforce augmentation. Beyond recruitment, Aayronix Hub drives software innovation and IT services, offering tailored solutions that blend creativity with cutting-edge technology — empowering businesses to achieve operational excellence and competitive advantage.</p>
+      </div>
+
+      <div class="glass padding-box gradient-border animate-fade-in" style="animation-delay: 0.2s;">
+        <h2 style="margin-bottom: var(--spacing-4)">Our Vision</h2>
+        <p class="lead-text">"To be a trusted partner for enterprises by delivering world-class staffing solutions and innovative IT services, enabling sustainable growth and digital transformation and building for the future."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Differentiators & What Sets Us Apart -->
+  <section class="section" style="background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: var(--spacing-16)">
+        <h2>What Sets Us Apart</h2>
+        <p style="color: var(--color-text-muted); max-width: 700px; margin: 0 auto;">Aayronix Hub specializes in ERP, cloud, cyber security, data analytics, and AI/GenAI solutions with elite strategic advisory support.</p>
+      </div>
+
+      <div class="differentiators-grid">
+        <div class="diff-card">
+          <h4>Tailored Solutions</h4>
+          <p>Personalized strategies aligned with your long-term vision.</p>
+        </div>
+        <div class="diff-card">
+          <h4>Innovation-Driven</h4>
+          <p>Expertise in AI, cloud, cybersecurity, and digital workplace solutions.</p>
+        </div>
+        <div class="diff-card">
+          <h4>Proven Experience</h4>
+          <p>Decades of success across industries, from startups to Fortune 500.</p>
+        </div>
+        <div class="diff-card">
+          <h4>End-to-End Services</h4>
+          <p>From advisory and implementation to managed services and recruitment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Divisions -->
+  <section class="section">
+    <div class="container text-center">
+      <h2 style="margin-bottom: var(--spacing-12)">Our Divisions</h2>
+      
+      <div class="divisions-grid">
+        <div class="division-card glass animate-fade-in" style="animation-delay: 0.1s;">
+          <h3 class="text-gradient">Aayronix Hub Digital</h3>
+          <p>Mobile-first and cloud-first solutions built on emerging technologies.</p>
+        </div>
+        
+        <div class="division-card glass animate-fade-in" style="animation-delay: 0.2s;">
+          <h3 class="text-gradient">Aayronix Hub Security</h3>
+          <p>Multi-layered cybersecurity strategies to protect your business.</p>
+        </div>
+
+        <div class="division-card glass animate-fade-in" style="animation-delay: 0.3s;">
+          <h3 class="text-gradient">Aayronix Hub Talent</h3>
+          <p>Recruitment and staffing solutions to build the leadership and teams you need.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contractor Care Highlight -->
+  <section class="section container">
+    <div class="contractor-care-banner glass pattern-bg">
+      <div class="cc-content">
+        <h2>Aayronix Hub Contractor Care</h2>
+        <p>We treat our talent as partners. With 20+ years of experience supporting contractors across industries, we have a proven track record in reducing turnover rates using a personalized, relationship-driven approach.</p>
+        <p><strong>Trusted partner for startups, mid-market, and Fortune 100 companies.</strong></p>
+        <a href="/contact" class="btn btn-primary" style="margin-top: var(--spacing-6);">Partner With Us For Success</a>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+  <Footer />
+</BaseLayout>
+
+<style>
+  .text-center {
+    text-align: center;
+  }
+
+  .about-hero {
+    padding-top: 160px;
+    padding-bottom: var(--spacing-16);
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    margin-bottom: var(--spacing-6);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--color-primary);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-6);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+    gap: var(--spacing-8);
+  }
+
+  .padding-box {
+    padding: var(--spacing-12);
+    border-radius: var(--radius-lg);
+  }
+
+  .padding-box p {
+    color: var(--color-text-muted);
+  }
+
+  .lead-text {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-text) !important;
+    line-height: 1.4;
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: var(--radius-lg);
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .differentiators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-8);
+  }
+
+  .diff-card {
+    background: rgba(15, 23, 42, 0.5);
+    padding: var(--spacing-8);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    transition: var(--transition);
+  }
+
+  .diff-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-5px);
+  }
+
+  .diff-card h4 {
+    margin-bottom: var(--spacing-2);
+    color: var(--color-text);
+  }
+
+  .diff-card p {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  .divisions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--spacing-8);
+  }
+
+  .division-card {
+    padding: var(--spacing-12) var(--spacing-6);
+    border-radius: var(--radius-lg);
+  }
+
+  .division-card h3 {
+    margin-bottom: var(--spacing-4);
+  }
+
+  .division-card p {
+    color: var(--color-text-muted);
+  }
+
+  .contractor-care-banner {
+    padding: var(--spacing-12);
+    border-radius: var(--radius-lg);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pattern-bg::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--color-accent) 0%, transparent 60%);
+    opacity: 0.15;
+    border-radius: 50%;
+  }
+
+  .cc-content {
+    max-width: 800px;
+    text-align: center;
+  }
+
+  .cc-content p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-4);
+    font-size: 1.125rem;
+  }
+
+  @media (max-width: 900px) {
+    .about-grid, .divisions-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

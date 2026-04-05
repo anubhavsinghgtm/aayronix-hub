@@ -1,0 +1,119 @@
+---
+// AboutTeaser.astro
+---
+<section class="section about-teaser">
+  <div class="container split-layout">
+    <div class="content animate-fade-in">
+      <span class="badge">Welcome to Aayronix Hub</span>
+      <h2 class="section-title">Driving Real Impact Through <span class="text-gradient">Talent & Technology</span></h2>
+      <p class="lead-text">With over 30 years of combined experience, our founders lead Aayronix Hub in delivering real impact through talent and technology.</p>
+      <p>We help businesses scale, innovate, and stay ahead—because we understand the pulse and needs of today’s organisations. Our hallmark is hassle-free talent delivery, building scalable teams, and accelerating business growth.</p>
+      <a href="/about" class="btn btn-primary" style="margin-top: var(--spacing-6);">Learn More About Us</a>
+    </div>
+    <div class="visual">
+      <div class="stat-card glass">
+        <h3 class="counter-up" data-target="30" data-suffix="+">0+</h3>
+        <p>Years Combined Experience</p>
+      </div>
+      <div class="stat-card glass" style="margin-top: var(--spacing-8); margin-left: var(--spacing-8);">
+        <h3>Global</h3>
+        <p>Talent Network</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-16);
+    align-items: center;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--color-primary);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-4);
+  }
+
+  .section-title {
+    margin-bottom: var(--spacing-6);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .lead-text {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-4);
+    color: var(--color-text);
+  }
+
+  p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-4);
+  }
+
+  .visual {
+    position: relative;
+    padding: var(--spacing-8);
+  }
+
+  .visual::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: var(--color-primary);
+    filter: blur(100px);
+    opacity: 0.2;
+    z-index: -1;
+    border-radius: 50%;
+  }
+
+  .stat-card {
+    padding: var(--spacing-8);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .stat-card h3 {
+    font-size: 3rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: var(--spacing-2);
+  }
+
+  .stat-card p {
+    font-weight: 500;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .split-layout {
+      grid-template-columns: 1fr;
+    }
+    
+    .stat-card {
+      margin-left: 0 !important;
+      margin-top: var(--spacing-4) !important;
+    }
+  }
+</style>

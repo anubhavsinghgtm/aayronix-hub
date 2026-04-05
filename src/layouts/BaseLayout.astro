@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Aayronix - Delivering innovative tech and consulting services to build the future of your business." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO and Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <slot />
+    
+    <script>
+      function initCounters() {
+        const counters = document.querySelectorAll('.counter-up');
+        if (!counters.length) return;
+
+        const observer = new IntersectionObserver((entries, ob) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const counter = entry.target;
+              const target = +counter.getAttribute('data-target');
+              const suffix = counter.getAttribute('data-suffix') || '';
+              const speed = 40; // frames to completion
+              
+              let count = 0;
+              const updateCount = () => {
+                const inc = target / speed;
+                if (count < target) {
+                  count += inc;
+                  counter.innerText = Math.ceil(count) + suffix;
+                  requestAnimationFrame(updateCount);
+                } else {
+                  counter.innerText = target + suffix;
+                }
+              };
+              
+              updateCount();
+              ob.unobserve(counter);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        counters.forEach(counter => observer.observe(counter));
+      }
+
+      document.addEventListener('DOMContentLoaded', initCounters);
+      document.addEventListener('astro:page-load', initCounters); // Support for view transitions
+    </script>
+  </body>
+</html>

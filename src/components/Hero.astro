@@ -1,0 +1,149 @@
+---
+// Hero.astro
+---
+
+<section id="home" class="hero">
+  <!-- We will insert the generated image here via inline styling or an image tag -->
+  <div class="hero-bg">
+    <div class="glow-orb primary"></div>
+    <div class="glow-orb accent"></div>
+  </div>
+  
+  <div class="container hero-container text-content">
+    <div class="hero-badge animate-fade-in" style="animation-delay: 0.1s">
+      <span class="badge-dot"></span>
+      Welcome to Aayronix Hub
+    </div>
+    
+    <h1 class="hero-title animate-fade-in" style="animation-delay: 0.2s">
+      Your Trusted <br class="mobile-break" /><span class="text-gradient">One-Stop IT Partner</span>
+    </h1>
+    
+    <p class="hero-subtitle animate-fade-in" style="animation-delay: 0.3s">
+      Empowering enterprises with Cloud, AI, Cybersecurity, and next-gen Talent Solutions that drive growth and resilience.
+    </p>
+    
+    <div class="hero-cta animate-fade-in" style="animation-delay: 0.4s">
+      <a href="/contact" class="btn btn-primary">Get Started</a>
+      <a href="/services" class="btn glass">Explore Our Services</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding-top: 160px; /* Offset for header */
+    padding-bottom: var(--spacing-24);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .glow-orb {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.4;
+  }
+
+  .glow-orb.primary {
+    top: -100px;
+    right: -100px;
+    background: var(--color-primary);
+  }
+
+  .glow-orb.accent {
+    bottom: -200px;
+    left: -200px;
+    background: var(--color-accent);
+  }
+
+  .hero-container {
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    background: rgba(51, 65, 85, 0.4);
+    border: 1px solid var(--color-border);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-8);
+    color: var(--color-text-muted);
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 10px var(--color-accent);
+  }
+
+  .hero-title {
+    margin-bottom: var(--spacing-6);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-8) auto;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: var(--spacing-4);
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding-top: 120px;
+      min-height: 80vh;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.125rem;
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .hero-cta .btn {
+      width: 100%;
+    }
+  }
+</style>

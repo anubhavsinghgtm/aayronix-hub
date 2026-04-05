@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+const benefits = [
+  { title: "Continuous Learning", desc: "Access to certifications, training programs, and mentorship to accelerate your growth.", icon: "📚" },
+  { title: "Diversity & Inclusion", desc: "A collaborative, global environment where every voice is heard and valued.", icon: "🌍" },
+  { title: "Global Exposure", desc: "Opportunities to work on international projects with Fortune 500 companies.", icon: "🚀" },
+  { title: "Flexible Working", desc: "Remote and hybrid work options designed to support a healthy work-life balance.", icon: "⚖️" },
+  { title: "Health & Wellness", desc: "Comprehensive benefits packages focusing on your physical and mental well-being.", icon: "🏥" }
+];
+
+const jobs = [
+  { role: "Senior Cloud Architect", dep: "Engineering", loc: "Remote / North America", type: "Full-Time" },
+  { role: "Cybersecurity Analyst", dep: "Security", loc: "Europe", type: "Contract" },
+  { role: "AI & Machine Learning Engineer", dep: "Innovation Hub", loc: "Asia-Pacific", type: "Full-Time" },
+  { role: "IT Recruitment Specialist", dep: "Talent Solutions", loc: "India", type: "Full-Time" }
+];
+---
+
+<BaseLayout title="Careers | Aayronix Hub">
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="page-hero text-center" style="padding-top: 160px; padding-bottom: var(--spacing-16);">
+    <div class="container animate-fade-in">
+      <span class="badge">Join Our Team</span>
+      <h1 class="title">Innovate. Grow. <span class="text-gradient">Lead.</span></h1>
+      <p class="subtitle" style="font-size: 1.25rem; max-width: 800px; margin: 0 auto;">At Aayronix Hub, we believe our people are our greatest strength. Whether you're an experienced IT professional or a recent graduate, we offer an environment where you can build the future of technology.</p>
+    </div>
+  </section>
+
+  <!-- Life at Aayronix & Benefits -->
+  <section class="section" style="background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: var(--spacing-12)">
+        <h2>Life at Aayronix Hub</h2>
+        <p style="color: var(--color-text-muted);">We intentionally cultivate an environment where world-class talent can thrive.</p>
+      </div>
+
+      <div class="benefits-grid">
+        {benefits.map((benefit, i) => (
+          <div class="benefit-card glass animate-fade-in" style={`animation-delay: ${i * 0.1}s`}>
+            <div class="icon">{benefit.icon}</div>
+            <h3>{benefit.title}</h3>
+            <p>{benefit.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Graduate Programs Banner -->
+  <section class="section container">
+    <div class="grad-banner glass">
+      <div class="grad-content">
+        <h2 style="margin-bottom: var(--spacing-4);">Graduate & Internship Programs</h2>
+        <p>Kickstart your career with Aayronix Hub. Our specialized programs provide hands-on experience, dedicated mentorship, and real-world project exposure for emerging tech talent.</p>
+        <a href="/contact" class="btn btn-primary" style="margin-top: var(--spacing-6);">Apply for Graduate Program</a>
+      </div>
+      <div class="grad-visual">
+        <div class="visual-circle"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Roles / Job Board -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: var(--spacing-12);">
+        <h2>Current Openings</h2>
+        <p style="color: var(--color-text-muted);">Explore our available roles and find where you fit best.</p>
+      </div>
+
+      <div class="jobs-list">
+        {jobs.map((job) => (
+          <div class="job-row glass animate-fade-in">
+            <div class="job-info">
+              <h3>{job.role}</h3>
+              <div class="job-meta">
+                <span class="meta-item">{job.dep}</span>
+                <span class="meta-item">•</span>
+                <span class="meta-item">{job.loc}</span>
+                <span class="meta-item">•</span>
+                <span class="meta-item">{job.type}</span>
+              </div>
+            </div>
+            <div class="job-action">
+              <a href="/contact" class="btn btn-primary outline">Apply Now</a>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="text-center" style="margin-top: var(--spacing-8);">
+        <p style="color: var(--color-text-muted); font-size: 0.875rem;">Don't see a perfect fit? <a href="/contact" style="color: var(--color-primary);">Send us your resume anyway</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+  <Footer />
+</BaseLayout>
+
+<style>
+  .text-center { text-align: center; }
+
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(110, 231, 183, 0.1);
+    color: var(--color-accent);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-6);
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    margin-bottom: var(--spacing-6);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .subtitle {
+    color: var(--color-text-muted);
+  }
+
+  /* Benefits Grid */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-8);
+  }
+
+  .benefit-card {
+    padding: var(--spacing-8);
+    border-radius: var(--radius-lg);
+    transition: var(--transition);
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+  }
+
+  .benefit-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-4);
+  }
+
+  .benefit-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-2);
+  }
+
+  .benefit-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+
+  /* Graduate Banner */
+  .grad-banner {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-8);
+    padding: var(--spacing-12);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+    overflow: hidden;
+  }
+
+  .grad-content p {
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+    max-width: 600px;
+  }
+
+  .grad-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .visual-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+    opacity: 0.4;
+    filter: blur(20px);
+  }
+
+  /* Jobs List */
+  .jobs-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+  }
+
+  .job-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-6) var(--spacing-8);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+  }
+
+  .job-row:hover {
+    border-color: var(--color-accent);
+  }
+
+  .job-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-text);
+  }
+
+  .job-meta {
+    display: flex;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  .btn.outline {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-text);
+  }
+
+  .btn.outline:hover {
+    background: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .grad-banner {
+      grid-template-columns: 1fr;
+    }
+    .grad-visual {
+      display: none;
+    }
+    .job-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-4);
+    }
+  }
+</style>

@@ -1,0 +1,77 @@
+---
+// Header.astro
+---
+
+<header class="header">
+  <div class="container header-container">
+    <a href="/" class="logo">
+      Aayronix<span class="dot">.</span>
+    </a>
+    
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about">About Us</a>
+      <a href="/services">Services</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/careers">Careers</a>
+      <a href="/industries">Industries</a>
+      <a href="/contact" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.875rem;">Get in Touch</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    transition: var(--transition);
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+
+  .logo .dot {
+    color: var(--color-primary);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-6);
+  }
+
+  .nav-links a:not(.btn) {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+
+  .nav-links a:not(.btn):hover {
+    color: var(--color-text);
+  }
+
+  @media (max-width: 1024px) {
+    .nav-links {
+      display: none; /* simple mobile setup for now */
+    }
+  }
+</style>

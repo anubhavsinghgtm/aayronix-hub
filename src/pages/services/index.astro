@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ServicesGrid from '../../components/Services.astro';
+import CallToAction from '../../components/CallToAction.astro';
+---
+
+<BaseLayout title="Our Services | Aayronix Hub">
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="page-hero text-center" style="padding-top: 160px; padding-bottom: var(--spacing-8);">
+    <div class="container animate-fade-in">
+      <span class="badge">What We Do</span>
+      <h1 class="title text-gradient">Solutions That Drive Growth</h1>
+      <p class="subtitle" style="font-size: 1.25rem; max-width: 800px; margin: 0 auto;">From cloud transformation to complete IT recruitment, we provide end-to-end expertise to power your enterprise into the future.</p>
+    </div>
+  </section>
+
+  <!-- We reuse the existing Services.astro component here -->
+  <ServicesGrid />
+
+  <CallToAction />
+  <Footer />
+</BaseLayout>
+
+<style>
+  .text-center { text-align: center; }
+  .badge { display: inline-block; padding: 0.25rem 0.75rem; background: rgba(110, 231, 183, 0.1); color: var(--color-accent); border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 600; margin-bottom: var(--spacing-6); }
+  .title { font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: var(--spacing-4); }
+  .text-gradient { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .subtitle { color: var(--color-text-muted); }
+</style>

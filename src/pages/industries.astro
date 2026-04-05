@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+const industries = [
+  { icon: "💻", title: "Technology & Software", focus: "Helping innovators scale faster with cloud-native solutions.", result: "Enabled a SaaS provider to cut infrastructure costs by 40% while boosting performance." },
+  { icon: "🏥", title: "Healthcare & Life Sciences", focus: "Improving patient outcomes with secure, interoperable platforms.", result: "Partnered with a hospital network to digitize records, reducing admin time by 60%." },
+  { icon: "💼", title: "Financial Services", focus: "Delivering secure, compliant solutions for banks, insurers, and fintechs.", result: "Helped a fintech launch a mobile-first payment app that reached 1M users." },
+  { icon: "🏗️", title: "Manufacturing", focus: "Powering smart factories with IoT and predictive analytics.", result: "Enabled a global manufacturer to reduce downtime by 25% via real-time monitoring." },
+  { icon: "🛒", title: "Retail & Consumer", focus: "Creating seamless omnichannel experiences for modern shoppers.", result: "Helped a retailer increase online sales by 70% with an AI recommendation engine." },
+  { icon: "🚚", title: "Logistics", focus: "Optimizing fleet management and real-time tracking.", result: "Partnered with a provider to cut delivery times by 30% using AI-powered routing." },
+  { icon: "🎓", title: "Education & Public Sector", focus: "Empowering institutions with digital learning tools.", result: "Helped a university launch a platform that doubled student participation." },
+  { icon: "🚀", title: "Technology Startups", focus: "Agility, Innovation, & Growth powered by cloud and AI.", result: "Flexible recruitment solutions to assemble high-performing teams quickly." }
+];
+---
+
+<BaseLayout title="Industries We Support | Aayronix Hub">
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="page-hero text-center" style="padding-top: 160px; padding-bottom: var(--spacing-16);">
+    <div class="container animate-fade-in">
+      <h1 class="title text-gradient">Tailored Solutions for Every Industry</h1>
+      <p class="subtitle" style="font-size: 1.25rem; max-width: 800px; margin: 0 auto;">Every industry faces unique challenges. At Aayronix Hub, we combine deep expertise with flexible solutions to help businesses across sectors innovate, scale, and thrive.</p>
+    </div>
+  </section>
+
+  <!-- Industries Grid -->
+  <section class="section" style="padding-top: 0">
+    <div class="container">
+      <div class="industries-grid">
+        {industries.map((ind, index) => (
+          <div class="industry-card glass animate-fade-in" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="icon">{ind.icon}</div>
+            <h3>{ind.title}</h3>
+            <p class="focus">{ind.focus}</p>
+            <div class="success-story">
+              <strong>Success Story:</strong>
+              <p>{ind.result}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+  <Footer />
+</BaseLayout>
+
+<style>
+  .text-center { text-align: center; }
+
+  .title {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    margin-bottom: var(--spacing-6);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .subtitle {
+    color: var(--color-text-muted);
+  }
+
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-8);
+  }
+
+  .industry-card {
+    padding: var(--spacing-8);
+    border-radius: var(--radius-lg);
+    transition: var(--transition);
+  }
+
+  .industry-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent);
+  }
+
+  .icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-4);
+  }
+
+  .industry-card h3 {
+    margin-bottom: var(--spacing-2);
+    font-size: 1.25rem;
+  }
+
+  .focus {
+    color: var(--color-text);
+    margin-bottom: var(--spacing-6);
+  }
+
+  .success-story {
+    padding-top: var(--spacing-4);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .success-story strong {
+    font-size: 0.875rem;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .success-story p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin: 0;
+  }
+</style>

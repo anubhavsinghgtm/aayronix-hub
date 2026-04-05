@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import AboutTeaser from '../components/AboutTeaser.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import Services from '../components/Services.astro';
+import CallToAction from '../components/CallToAction.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Aayronix Hub | Your Trusted One-Stop IT Partner" description="Empowering enterprises with Cloud, AI, Cybersecurity, and next-gen Talent Solutions that drive growth and resilience.">
+  <Header />
+  
+  <main>
+    <Hero />
+    
+    <!-- Hero Image Showcase Section -->
+    <section class="image-showcase container">
+       <div class="glass image-wrapper animate-fade-in" style="animation-delay: 0.5s">
+         <img src="/hero-bg.png" alt="Aayronix Technological Future" />
+       </div>
+    </section>
+
+    <AboutTeaser />
+    <WhyChooseUs />
+    <Services />
+    <CallToAction />
+
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<style>
+  .image-showcase {
+    margin-top: calc(-1 * var(--spacing-4));
+    margin-bottom: var(--spacing-16);
+    position: relative;
+    z-index: 10;
+  }
+
+  .image-wrapper {
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  .image-wrapper img {
+    border-radius: var(--radius-md);
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    border: 1px solid var(--color-border);
+  }
+</style>

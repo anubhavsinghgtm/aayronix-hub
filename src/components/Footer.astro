@@ -1,0 +1,112 @@
+---
+// Footer.astro
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          Aayronix<span class="dot">.</span>
+        </a>
+        <p>Empowering businesses through cutting-edge technology, cloud innovation, AI, cybersecurity, and strategic staffing solutions.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/careers">Careers</a>
+        <a href="/case-studies">Success Stories</a>
+        <a href="/industries">Industries</a>
+        <a href="/contact">Contact</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>Services</h4>
+        <a href="/services/cloud-transformation">Cloud & Digital</a>
+        <a href="/services/cybersecurity">Cybersecurity</a>
+        <a href="/services/ai-innovation">AI & Data Analytics</a>
+        <a href="/services/staff-augmentation">Staffing & Recruitment</a>
+        <a href="/services">All Services</a>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} Aayronix. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-surface);
+    padding: var(--spacing-16) 0 var(--spacing-8) 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--spacing-12);
+    margin-bottom: var(--spacing-16);
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    display: block;
+    margin-bottom: var(--spacing-4);
+  }
+
+  .logo .dot {
+    color: var(--color-primary);
+  }
+
+  .footer-brand p {
+    color: var(--color-text-muted);
+    max-width: 300px;
+    font-size: 0.875rem;
+  }
+
+  .footer-links h4 {
+    margin-bottom: var(--spacing-6);
+    color: var(--color-text);
+    font-family: var(--font-heading);
+  }
+
+  .footer-links a {
+    display: block;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-3);
+    font-size: 0.875rem;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-primary);
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-8);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-8);
+    }
+  }
+</style>

@@ -1,0 +1,279 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+const caseStudies = [
+  {
+    title: "Cloud Adoption for Financial Services",
+    challenge: "Legacy infrastructure slowing operations and driving up maintenance costs.",
+    solution: "Full cloud migration with enhanced security & compliance measures.",
+    result: "30% reduction in IT costs, vastly improved scalability.",
+    delay: "0.1s"
+  },
+  {
+    title: "AI-Powered Customer Experience for Retail",
+    challenge: "Low customer engagement and fragmented digital channels.",
+    solution: "AI-driven chatbots & personalized CX strategies.",
+    result: "50% increase in customer satisfaction scores.",
+    delay: "0.2s"
+  },
+  {
+    title: "Executive Search for Healthcare",
+    challenge: "Struggling to identify leadership talent for rapid expansion.",
+    solution: "Tailored executive recruitment process and global network sourcing.",
+    result: "Successful placement of C-suite leaders driving regional expansion.",
+    delay: "0.3s"
+  }
+];
+---
+
+<BaseLayout title="Client Success Stories | Aayronix Hub">
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="page-hero text-center" style="padding-top: 160px; padding-bottom: var(--spacing-16);">
+    <div class="container animate-fade-in">
+      <span class="badge">Case Studies</span>
+      <h1 class="title">Client Success <span class="text-gradient">Stories</span></h1>
+      <p class="subtitle" style="font-size: 1.25rem; font-style: italic; max-width: 800px; margin: 0 auto;">"Aayronix Hub helped us scale globally while keeping our IT operations secure and efficient. Their expertise in cloud and AI transformed our business." — Fortune 500 Client</p>
+    </div>
+  </section>
+
+  <!-- Quick Case Studies Grid -->
+  <section class="section" style="background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="grid-3">
+        {caseStudies.map((cs) => (
+          <div class="cs-card glass animate-fade-in" style={`animation-delay: ${cs.delay}`}>
+            <h3 class="text-gradient" style="margin-bottom: var(--spacing-4);">{cs.title}</h3>
+            
+            <div class="cs-point">
+              <strong>Challenge:</strong>
+              <p>{cs.challenge}</p>
+            </div>
+            
+            <div class="cs-point">
+              <strong>Solution:</strong>
+              <p>{cs.solution}</p>
+            </div>
+            
+            <div class="cs-point highlight-point">
+              <strong>Result:</strong>
+              <p>{cs.result}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Case Study -->
+  <section class="section">
+    <div class="container">
+      <div class="featured-cs glass animate-fade-in">
+        <div class="featured-header text-center">
+          <span class="badge">Featured Deep Dive</span>
+          <h2 style="margin-bottom: var(--spacing-6)">Recruitment & Staffing Excellence</h2>
+          <p style="color: var(--color-text-muted); max-width: 800px; margin: 0 auto var(--spacing-8) auto;">A mid-sized technology company expanding into new markets required rapid workforce scaling. They faced challenges in sourcing specialized IT talent, reducing time-to-hire, and ensuring cultural fit across diverse teams.</p>
+        </div>
+
+        <div class="split-content">
+          <div class="cs-col">
+            <h3>The Challenge</h3>
+            <ul class="custom-list">
+              <li>High demand for niche skills in cloud, cybersecurity, and data analytics.</li>
+              <li>Lengthy recruitment cycles causing project delays.</li>
+              <li>Limited internal HR bandwidth to manage large-scale hiring.</li>
+              <li>Need for both contract and permanent staffing solutions.</li>
+            </ul>
+          </div>
+
+          <div class="cs-col">
+            <h3>Our Approach</h3>
+            <ul class="custom-list check-list">
+              <li><strong>Talent Mapping:</strong> Built a global talent pipeline resolving immediate skill gaps.</li>
+              <li><strong>RPO Integration:</strong> Managed sourcing, screening, and interviewing using AI-tools.</li>
+              <li><strong>Contract Staffing:</strong> Deployed pre-vetted professionals for immediate spikes.</li>
+              <li><strong>Permanent Staffing:</strong> Leadership hiring focusing on cultural fit.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="results-banner">
+          <h3>The Results</h3>
+          <div class="results-grid">
+            <div class="stat-box">
+              <h4 class="counter-up" data-target="80" data-suffix="%">0%</h4>
+              <p>Reduction in hiring costs</p>
+            </div>
+            <div class="stat-box">
+              <h4 class="counter-up" data-target="50" data-suffix="%">0%</h4>
+              <p>Faster time-to-hire</p>
+            </div>
+            <div class="stat-box">
+              <h4 class="counter-up" data-target="35" data-suffix="%">0%</h4>
+              <p>Improvement in retention</p>
+            </div>
+            <div class="stat-box">
+              <h4>Global</h4>
+              <p>Reach achieved quickly</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+  <Footer />
+</BaseLayout>
+
+<style>
+  .text-center { text-align: center; }
+
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(110, 231, 183, 0.1);
+    color: var(--color-accent);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-6);
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    margin-bottom: var(--spacing-6);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-8);
+  }
+
+  .cs-card {
+    padding: var(--spacing-8);
+    border-radius: var(--radius-lg);
+    border-top: 4px solid var(--color-primary);
+  }
+
+  .cs-point {
+    margin-bottom: var(--spacing-4);
+  }
+
+  .cs-point strong {
+    color: var(--color-text);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .cs-point p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .highlight-point p {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  /* Featured Case Study */
+  .featured-cs {
+    padding: var(--spacing-12);
+    border-radius: var(--radius-lg);
+  }
+
+  .split-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-12);
+    margin-bottom: var(--spacing-12);
+  }
+
+  .cs-col h3 {
+    margin-bottom: var(--spacing-4);
+    color: var(--color-primary);
+  }
+
+  .custom-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .custom-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .custom-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  .check-list li::before {
+    content: '✓';
+    color: var(--color-accent);
+  }
+
+  .results-banner {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-8);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+
+  .results-banner h3 {
+    margin-bottom: var(--spacing-8);
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-6);
+  }
+
+  .stat-box h4 {
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-box p {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 900px) {
+    .split-content {
+      grid-template-columns: 1fr;
+    }
+    .results-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .results-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

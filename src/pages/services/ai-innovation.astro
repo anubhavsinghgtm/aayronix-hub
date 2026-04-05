@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CallToAction from '../../components/CallToAction.astro';
+
+const features = [
+  {
+    title: "AI Solutions",
+    list: [
+      "Intelligent assistants (Alexa, Google, Siri).",
+      "Chatbots for seamless customer support.",
+      "Personalized CX strategies across digital channels."
+    ]
+  },
+  {
+    title: "Human-Machine Platforms",
+    list: [
+      "Next-generation intelligence systems.",
+      "Natural language processing (NLP) for smarter communication.",
+      "Neural networks driving invisible interfaces."
+    ]
+  },
+  {
+    title: "IoT & Smart Technologies",
+    list: [
+      "Integration of IoT devices for real-time insights.",
+      "AI-driven automation across industries.",
+      "Smart environments for enhanced user engagement."
+    ]
+  },
+  {
+    title: "Business Transformation",
+    list: [
+      "Predictive analytics for better decision-making.",
+      "Machine learning models to optimize operations.",
+      "AI-driven innovation to create new revenue streams."
+    ]
+  }
+];
+---
+
+<BaseLayout title="AI & Innovation | Aayronix Hub">
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="page-hero text-center">
+    <div class="container animate-fade-in">
+      <span class="badge">Innovation Hub</span>
+      <h1 class="title text-gradient">AI & Innovation</h1>
+      <p class="subtitle">Redefining the Future of Human-Machine Interactions. We harness the power of AI to create intelligent platforms that augment human skills, streamline operations, and deliver hyper-personalized experiences.</p>
+    </div>
+  </section>
+
+  <!-- Details Grid -->
+  <section class="section" style="padding-top: 0">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: var(--spacing-12)">
+        <h2>Our AI Capabilities</h2>
+        <p style="color: var(--color-text-muted);">Over 1 billion digital touchpoints managed daily by our network of engineers.</p>
+      </div>
+      
+      <div class="details-grid">
+        {features.map((feature, idx) => (
+          <div class="details-card glass animate-fade-in" style={`animation-delay: ${idx * 0.1}s`}>
+            <h3>{feature.title}</h3>
+            <ul class="custom-list">
+              {feature.list.map(item => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+  <Footer />
+</BaseLayout>
+
+<style>
+  .text-center { text-align: center; }
+  .page-hero { padding-top: 160px; padding-bottom: var(--spacing-16); }
+  .badge { display: inline-block; padding: 0.25rem 0.75rem; background: rgba(110, 231, 183, 0.1); color: var(--color-accent); border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 600; margin-bottom: var(--spacing-6); }
+  .title { font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: var(--spacing-4); }
+  .text-gradient { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .subtitle { font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: var(--color-text-muted); }
+  .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--spacing-8); }
+  .details-card { padding: var(--spacing-8); border-radius: var(--radius-lg); border-top: 4px solid var(--color-primary); transition: var(--transition); }
+  .details-card:hover { transform: translateY(-5px); border-color: var(--color-accent); }
+  .details-card h3 { margin-bottom: var(--spacing-6); color: var(--color-text); }
+  .custom-list { list-style: none; padding: 0; margin: 0; }
+  .custom-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; }
+  .custom-list li::before { content: '→'; position: absolute; left: 0; color: var(--color-primary); font-weight: 600; }
+</style>
