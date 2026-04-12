@@ -11,13 +11,18 @@
       <a href="/about" class="btn btn-primary" style="margin-top: var(--spacing-6);">Learn More About Us</a>
     </div>
     <div class="visual">
-      <div class="stat-card glass">
-        <h3 class="counter-up" data-target="30" data-suffix="+">0+</h3>
-        <p>Years Combined Experience</p>
+      <div class="image-container animate-fade-in" style="animation-delay: 0.3s">
+        <img src="/corporate_about.png?v=987" alt="Aayronix Hub Professional Corporate Team" />
       </div>
-      <div class="stat-card glass" style="margin-top: var(--spacing-8); margin-left: var(--spacing-8);">
-        <h3>Global</h3>
-        <p>Talent Network</p>
+      <div class="stats-container">
+        <div class="stat-card glass">
+          <h3 class="counter-up" data-target="30" data-suffix="+">0+</h3>
+          <p>Years Experience</p>
+        </div>
+        <div class="stat-card glass">
+          <h3>Global</h3>
+          <p>Talent Network</p>
+        </div>
       </div>
     </div>
   </div>
@@ -86,14 +91,15 @@
   }
 
   .stat-card {
-    padding: var(--spacing-8);
+    flex: 1;
+    padding: var(--spacing-6);
     border-radius: var(--radius-lg);
     text-align: center;
     border-left: 4px solid var(--color-primary);
   }
 
   .stat-card h3 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -106,14 +112,33 @@
     margin: 0;
   }
 
+  .image-container {
+    margin-bottom: var(--spacing-6);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .stats-container {
+    display: flex;
+    gap: var(--spacing-6);
+  }
+
   @media (max-width: 768px) {
     .split-layout {
       grid-template-columns: 1fr;
     }
     
-    .stat-card {
-      margin-left: 0 !important;
-      margin-top: var(--spacing-4) !important;
+    .stats-container {
+      flex-direction: column;
     }
   }
 </style>

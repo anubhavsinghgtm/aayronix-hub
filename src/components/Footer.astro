@@ -8,7 +8,7 @@ const currentYear = new Date().getFullYear();
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="logo">
-          Aayronix<span class="dot">.</span>
+          <img src="/aayronix_logo.png" alt="Aayronix Hub logo" class="brand-logo" />
         </a>
         <p>Empowering businesses through cutting-edge technology, cloud innovation, AI, cybersecurity, and strategic staffing solutions.</p>
       </div>
@@ -68,8 +68,11 @@ const currentYear = new Date().getFullYear();
     margin-bottom: var(--spacing-4);
   }
 
-  .logo .dot {
-    color: var(--color-primary);
+  .brand-logo {
+    max-height: 120px;
+    width: auto;
+    display: block;
+    object-fit: contain;
   }
 
   .footer-brand p {

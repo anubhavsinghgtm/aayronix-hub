@@ -5,8 +5,8 @@
 <section id="home" class="hero">
   <!-- We will insert the generated image here via inline styling or an image tag -->
   <div class="hero-bg">
-    <div class="glow-orb primary"></div>
-    <div class="glow-orb accent"></div>
+    <video class="hero-video" src="https://blobby.wsimg.com/getty/videos/1316572786" autoplay loop muted playsinline></video>
+    <div class="hero-overlay"></div>
   </div>
   
   <div class="container hero-container text-content">
@@ -51,25 +51,19 @@
     overflow: hidden;
   }
 
-  .glow-orb {
+  .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
     position: absolute;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.4;
-  }
-
-  .glow-orb.primary {
-    top: -100px;
-    right: -100px;
-    background: var(--color-primary);
-  }
-
-  .glow-orb.accent {
-    bottom: -200px;
-    left: -200px;
-    background: var(--color-accent);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.7); /* dark overlay for legibility */
   }
 
   .hero-container {

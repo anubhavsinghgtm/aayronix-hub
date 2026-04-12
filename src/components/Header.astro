@@ -5,7 +5,7 @@
 <header class="header">
   <div class="container header-container">
     <a href="/" class="logo">
-      Aayronix<span class="dot">.</span>
+      <img src="/aayronix_logo.png" alt="Aayronix Hub logo" class="brand-logo" />
     </a>
     
     <nav class="nav-links">
@@ -38,7 +38,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    height: 100px;
   }
 
   .logo {
@@ -49,8 +49,13 @@
     color: var(--color-text);
   }
 
-  .logo .dot {
-    color: var(--color-primary);
+  .brand-logo {
+    max-height: 90px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    transform: scale(1.15);
+    transform-origin: left center;
   }
 
   .nav-links {

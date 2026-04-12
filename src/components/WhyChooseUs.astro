@@ -24,8 +24,8 @@ const reasons = [
 ];
 ---
 
-<section class="section why-choose-us" style="background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
-  <div class="container split-layout">
+<section class="section why-choose-us" style="background-image: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), url('/why_choose_us_bg.png?t=123'); background-size: cover; background-position: center;">
+  <div class="container split-layout content-wrapper">
     
     <div class="grid-half">
       {reasons.map((reason, index) => (
@@ -52,6 +52,17 @@ const reasons = [
 </section>
 
 <style>
+  .why-choose-us {
+    position: relative;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .content-wrapper {
+    position: relative;
+    z-index: 10;
+  }
+
   .split-layout {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
