@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import CallToAction from '../../components/CallToAction.astro';
+import ParticleBackground from '../../components/ParticleBackground.astro';
 
 const features = [
   {
@@ -46,28 +47,18 @@ const features = [
 
 <BaseLayout title="Cloud Transformation | Aayronix Hub">
   <Header />
-<!-- Coming Soon Snippet -->
-  <div style="min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
-    <span style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(59, 130, 246, 0.1); color: #3b82f6; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem; border: 1px solid rgba(59, 130, 246, 0.2);">Work In Progress</span>
-    <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Coming Soon</h1>
-    <p style="color: #94a3b8; font-size: 1.25rem; max-width: 600px; margin: 0 auto;">We are currently working hard to prepare this content. Please check back later.</p>
-    <a href="/" style="display: inline-block; margin-top: 2rem; padding: 0.75rem 1.5rem; background: #3b82f6; color: white; text-decoration: none; border-radius: 0.375rem; font-weight: 500; transition: background 0.2s;">Back to Home</a>
-  </div>
-
-  {/*  
-
-
   <!-- Hero Section -->
-  <section class="page-hero text-center">
-    <div class="container animate-fade-in">
+  <section class="page-hero text-center" style="position: relative; padding-top: 180px; padding-bottom: 80px; overflow: hidden; background: #0f172a;">
+    <ParticleBackground particleColor="rgba(14, 165, 233, 0.8)" lineColor="rgba(14, 165, 233, 0.4)" interactiveColor="rgba(56, 189, 248, 1)" />
+    <div class="container animate-fade-in" style="position: relative; z-index: 2;">
       <span class="badge">Cloud & Digital</span>
       <h1 class="title text-gradient">Cloud Transformation</h1>
-      <p class="subtitle">Modernize Your IT Infrastructure with Confidence. The cloud is no longer optional—it’s the foundation of modern business. We help organizations migrate, optimize, and scale securely and efficiently.</p>
+      <p class="subtitle" style="color: rgba(255, 255, 255, 0.85); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Modernize Your IT Infrastructure with Confidence. The cloud is no longer optional—it’s the foundation of modern business. We help organizations migrate, optimize, and scale securely and efficiently.</p>
     </div>
   </section>
 
   <!-- Details Grid -->
-  <section class="section" style="padding-top: 0">
+  <section class="section" style="margin-top: 5rem;">
     <div class="container">
       <div class="text-center" style="margin-bottom: var(--spacing-12)">
         <h2>Our Cloud Services</h2>
@@ -90,8 +81,6 @@ const features = [
   </section>
 
   <CallToAction />
-  
-  */}
 <Footer />
 </BaseLayout>
 

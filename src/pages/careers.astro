@@ -22,23 +22,14 @@ const jobs = [
 
 <BaseLayout title="Careers | Aayronix Hub">
   <Header />
-<!-- Coming Soon Snippet -->
-  <div style="min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
-    <span style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(59, 130, 246, 0.1); color: #3b82f6; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem; border: 1px solid rgba(59, 130, 246, 0.2);">Work In Progress</span>
-    <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Coming Soon</h1>
-    <p style="color: #94a3b8; font-size: 1.25rem; max-width: 600px; margin: 0 auto;">We are currently working hard to prepare this content. Please check back later.</p>
-    <a href="/" style="display: inline-block; margin-top: 2rem; padding: 0.75rem 1.5rem; background: #3b82f6; color: white; text-decoration: none; border-radius: 0.375rem; font-weight: 500; transition: background 0.2s;">Back to Home</a>
-  </div>
-
-  {/*  
-
-
   <!-- Hero Section -->
-  <section class="page-hero text-center" style="padding-top: 160px; padding-bottom: var(--spacing-16);">
-    <div class="container animate-fade-in">
+  <section class="page-hero text-center" style="position: relative; padding-top: 180px; padding-bottom: 80px; overflow: hidden; background: #0f172a;">
+    <div class="hero-bg" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('/careers_hero_bg.png'); background-size: cover; background-position: center; z-index: 0; filter: brightness(0.7) contrast(1.1);"></div>
+    <div class="hero-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.95) 100%); z-index: 1;"></div>
+    <div class="container animate-fade-in" style="position: relative; z-index: 2;">
       <span class="badge">Join Our Team</span>
-      <h1 class="title">Innovate. Grow. <span class="text-gradient">Lead.</span></h1>
-      <p class="subtitle" style="font-size: 1.25rem; max-width: 800px; margin: 0 auto;">At Aayronix Hub, we believe our people are our greatest strength. Whether you're an experienced IT professional or a recent graduate, we offer an environment where you can build the future of technology.</p>
+      <h1 class="title text-gradient">Innovate. Grow. Lead.</h1>
+      <p class="subtitle" style="font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: rgba(255, 255, 255, 0.85); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">At Aayronix Hub, we believe our people are our greatest strength. Whether you're an experienced IT professional or a recent graduate, we offer an environment where you can build the future of technology.</p>
     </div>
   </section>
 
@@ -64,13 +55,15 @@ const jobs = [
 
   <!-- Graduate Programs Banner -->
   <section class="section container">
-    <div class="grad-banner glass">
-      <div class="grad-content">
+    <div class="grad-banner glass" style="position: relative; overflow: hidden; background: none; border: none;">
+      <div class="grad-bg" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('/internship_bg.png'); background-size: cover; background-position: center; z-index: 0; filter: brightness(0.6) contrast(1.1);"></div>
+      <div class="grad-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.95) 100%); z-index: 1;"></div>
+      <div class="grad-content" style="position: relative; z-index: 2;">
         <h2 style="margin-bottom: var(--spacing-4);">Graduate & Internship Programs</h2>
-        <p>Kickstart your career with Aayronix Hub. Our specialized programs provide hands-on experience, dedicated mentorship, and real-world project exposure for emerging tech talent.</p>
+        <p style="color: rgba(255, 255, 255, 0.85); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Kickstart your career with Aayronix Hub. Our specialized programs provide hands-on experience, dedicated mentorship, and real-world project exposure for emerging tech talent.</p>
         <a href="/contact" class="btn btn-primary" style="margin-top: var(--spacing-6);">Apply for Graduate Program</a>
       </div>
-      <div class="grad-visual">
+      <div class="grad-visual" style="position: relative; z-index: 2;">
         <div class="visual-circle"></div>
       </div>
     </div>
@@ -111,8 +104,6 @@ const jobs = [
   </section>
 
   <CallToAction />
-  
-  */}
 <Footer />
 </BaseLayout>
 

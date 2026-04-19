@@ -1,0 +1,186 @@
+---
+export interface Props {
+  particleColor?: string;
+  lineColor?: string;
+  interactiveColor?: string;
+}
+
+const { 
+  particleColor = 'rgba(59, 130, 246, 0.5)', 
+  lineColor = 'rgba(59, 130, 246, 0.2)',
+  interactiveColor = 'rgba(110, 231, 183, 0.6)'
+} = Astro.props;
+---
+
+<div class="particle-container">
+  <canvas 
+    id="particle-canvas" 
+    data-particle={particleColor} 
+    data-line={lineColor} 
+    data-interactive={interactiveColor}
+  ></canvas>
+</div>
+
+<style>
+  .particle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<script>
+  class ParticleNetwork {
+    private canvas: HTMLCanvasElement;
+    private ctx: CanvasRenderingContext2D;
+    private particles: Array<{x: number, y: number, vx: number, vy: number, radius: number}>;
+    private mouse: {x: number | null, y: number | null};
+    private animationFrame: number;
+    private particleColor: string;
+    private lineColor: string;
+    private interactiveColor: string;
+
+    constructor(canvas: HTMLCanvasElement) {
+      this.canvas = canvas;
+      this.ctx = canvas.getContext('2d')!;
+      
+      this.particleColor = canvas.dataset.particle || 'rgba(59, 130, 246, 0.5)';
+      this.lineColor = canvas.dataset.line || 'rgba(59, 130, 246, 0.2)';
+      this.interactiveColor = canvas.dataset.interactive || 'rgba(110, 231, 183, 0.6)';
+
+      this.particles = [];
+      this.mouse = { x: null, y: null };
+      
+      this.init();
+      this.animate();
+      
+      window.addEventListener('resize', this.handleResize.bind(this));
+      
+      // We listen to the closest section so sibling overlays don't block mouse events
+      const section = canvas.closest('section') || document.body;
+      section.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        this.mouse.x = e.clientX - rect.left;
+        this.mouse.y = e.clientY - rect.top;
+      });
+      section.addEventListener('mouseleave', () => {
+        this.mouse.x = null;
+        this.mouse.y = null;
+      });
+    }
+
+    private init() {
+      this.handleResize();
+      
+      // Amount of particles based on screen size to keep it looking good
+      const particleCount = Math.min(Math.floor((this.canvas.width * this.canvas.height) / 12000), 100);
+      
+      this.particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        this.particles.push({
+          x: Math.random() * this.canvas.width,
+          y: Math.random() * this.canvas.height,
+          vx: (Math.random() - 0.5) * 1.5, // Not too slow, smooth movement
+          vy: (Math.random() - 0.5) * 1.5,
+          radius: Math.random() * 2 + 1
+        });
+      }
+    }
+
+    private handleResize() {
+      const parent = this.canvas.parentElement;
+      if (parent) {
+        this.canvas.width = parent.clientWidth;
+        this.canvas.height = parent.clientHeight;
+      }
+    }
+
+    private animate() {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+      for (let i = 0; i < this.particles.length; i++) {
+        const p = this.particles[i];
+
+        // Move
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Bounce
+        if (p.x < 0 || p.x > this.canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > this.canvas.height) p.vy *= -1;
+
+        // Draw particle
+        this.ctx.beginPath();
+        this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        this.ctx.fillStyle = this.particleColor;
+        this.ctx.fill();
+
+        // Connect particles to each other
+        for (let j = i + 1; j < this.particles.length; j++) {
+          const p2 = this.particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 120) {
+            this.ctx.beginPath();
+            this.ctx.strokeStyle = this.lineColor;
+            this.ctx.lineWidth = 1 - (dist / 120);
+            this.ctx.moveTo(p.x, p.y);
+            this.ctx.lineTo(p2.x, p2.y);
+            this.ctx.stroke();
+          }
+        }
+
+        // Connect to mouse
+        if (this.mouse.x !== null && this.mouse.y !== null) {
+          const dxMouse = p.x - this.mouse.x;
+          const dyMouse = p.y - this.mouse.y;
+          const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+
+          if (distMouse < 180) {
+            this.ctx.beginPath();
+            this.ctx.strokeStyle = this.interactiveColor;
+            this.ctx.lineWidth = 1.5 * (1 - (distMouse / 180));
+            this.ctx.moveTo(p.x, p.y);
+            this.ctx.lineTo(this.mouse.x, this.mouse.y);
+            this.ctx.stroke();
+            
+            // Subtle pull
+            p.x -= dxMouse * 0.01;
+            p.y -= dyMouse * 0.01;
+          }
+        }
+      }
+
+      this.animationFrame = requestAnimationFrame(() => this.animate());
+    }
+  }
+
+  // Initialize script only once taking into account view transitions if applicable
+  const initCanvases = () => {
+    const canvases = document.querySelectorAll<HTMLCanvasElement>('canvas#particle-canvas');
+    canvases.forEach(canvas => {
+      // Avoid double init
+      if (!canvas.dataset.initialized) {
+        new ParticleNetwork(canvas);
+        canvas.dataset.initialized = "true";
+      }
+    });
+  };
+
+  initCanvases();
+  // If Astro view transitions are added later, re-init on page load
+  document.addEventListener('astro:page-load', initCanvases);
+</script>
