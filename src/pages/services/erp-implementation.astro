@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CallToAction from '../../components/CallToAction.astro';
+import ParticleBackground from '../../components/ParticleBackground.astro';
+
+const features = [
+  {
+    title: "Why ERP Matters",
+    list: [
+      "Unified Operations: Integrates finance, HR, supply chain, and CRM into one seamless system.",
+      "Data-Driven Decisions: Real-time analytics for smarter, faster business insights.",
+      "Scalability: Systems designed to grow with your enterprise.",
+      "Compliance & Security: Built-in controls to meet industry standards and safeguard data."
+    ]
+  },
+  {
+    title: "Our Approach",
+    list: [
+      "Discovery & Strategy: Assess current processes, identify gaps, and design ERP architecture.",
+      "Customization & Integration: Tailor ERP modules to fit unique business needs.",
+      "Talent + Tech Synergy: Deploy ERP consultants alongside workforce augmentation for rapid rollout.",
+      "Training & Adoption: Ensure teams embrace ERP with minimal disruption.",
+      "Continuous Optimization: Post-implementation support to refine and scale."
+    ]
+  },
+  {
+    title: "Key Differentiators",
+    list: [
+      "Hassle-Free Delivery: Smooth transitions with minimal downtime.",
+      "Scalable Teams: ERP experts backed by staffing augmentation for flexibility.",
+      "Innovation-Driven: ERP solutions integrated with AI/GenAI for predictive insights.",
+      "Proven Leadership: 25+ years of operational strategy and workforce scaling experience."
+    ]
+  }
+];
+---
+
+<BaseLayout title="ERP Implementation | Aayronix Hub">
+  <Header />
+  <ParticleBackground particleColor="rgba(79, 70, 229, 0.8)" lineColor="rgba(79, 70, 229, 0.4)" interactiveColor="rgba(99, 102, 241, 1)" fullPage />
+  <!-- Hero Section -->
+  <section class="page-hero text-center" style="position: relative; padding-top: 180px; padding-bottom: 80px; overflow: hidden;">
+    <div class="container animate-fade-in" style="position: relative; z-index: 2;">
+      <span class="badge">Enterprise Solutions</span>
+      <h1 class="title text-gradient">ERP Implementation</h1>
+      <p class="subtitle" style="color: rgba(255, 255, 255, 0.85); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">"Seamless ERP. Strategic Advantage." Enterprise Resource Planning is the backbone of modern organizations. We specialize in end-to-end ERP implementation that aligns technology with business processes—transforming workflows, empowering teams, and accelerating growth.</p>
+    </div>
+  </section>
+
+  <!-- Details Grid -->
+  <section class="section" style="margin-top: 5rem;">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: var(--spacing-12)">
+        <h2>Achieve Operational Excellence</h2>
+        <p style="color: var(--color-text-muted);">From Processes to Performance — We Implement.</p>
+      </div>
+      
+      <div class="details-grid">
+        {features.map((feature, idx) => (
+          <div class="details-card glass animate-fade-in" style={`animation-delay: ${idx * 0.1}s`}>
+            <h3>{feature.title}</h3>
+            <ul class="custom-list">
+              {feature.list.map(item => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+<Footer />
+</BaseLayout>
+
+<style>
+  .text-center { text-align: center; }
+  .page-hero { padding-top: 160px; padding-bottom: var(--spacing-16); }
+  .badge { display: inline-block; padding: 0.25rem 0.75rem; background: rgba(110, 231, 183, 0.1); color: var(--color-accent); border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 600; margin-bottom: var(--spacing-6); }
+  .title { font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: var(--spacing-4); }
+  .text-gradient { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .subtitle { font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: var(--color-text-muted); }
+  .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--spacing-8); }
+  .details-card { padding: var(--spacing-8); border-radius: var(--radius-lg); border-top: 4px solid var(--color-primary); transition: var(--transition); }
+  .details-card:hover { transform: translateY(-5px); border-color: var(--color-accent); }
+  .details-card h3 { margin-bottom: var(--spacing-6); color: var(--color-text); }
+  .custom-list { list-style: none; padding: 0; margin: 0; }
+  .custom-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5; }
+  .custom-list li::before { content: '→'; position: absolute; left: 0; color: var(--color-primary); font-weight: 600; }
+</style>
