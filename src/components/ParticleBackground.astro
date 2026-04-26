@@ -3,21 +3,24 @@ export interface Props {
   particleColor?: string;
   lineColor?: string;
   interactiveColor?: string;
+  fullPage?: boolean;
 }
 
 const { 
   particleColor = 'rgba(59, 130, 246, 0.5)', 
   lineColor = 'rgba(59, 130, 246, 0.2)',
-  interactiveColor = 'rgba(110, 231, 183, 0.6)'
+  interactiveColor = 'rgba(110, 231, 183, 0.6)',
+  fullPage = false
 } = Astro.props;
 ---
 
-<div class="particle-container">
+<div class:list={['particle-container', { 'particle-fullpage': fullPage }]}>
   <canvas 
     id="particle-canvas" 
     data-particle={particleColor} 
     data-line={lineColor} 
     data-interactive={interactiveColor}
+    data-fullpage={fullPage ? 'true' : 'false'}
   ></canvas>
 </div>
 
@@ -31,6 +34,16 @@ const {
     z-index: 0;
     overflow: hidden;
     background: transparent;
+  }
+
+  .particle-fullpage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
   }
 
   canvas {
@@ -67,17 +80,20 @@ const {
       
       window.addEventListener('resize', this.handleResize.bind(this));
       
-      // We listen to the closest section so sibling overlays don't block mouse events
-      const section = canvas.closest('section') || document.body;
+      // For full page mode, listen on the whole document; otherwise the parent section
+      const isFullPage = canvas.dataset.fullpage === 'true';
+      const section = isFullPage ? document.body : (canvas.closest('section') || document.body);
       section.addEventListener('mousemove', (e) => {
         const rect = canvas.getBoundingClientRect();
         this.mouse.x = e.clientX - rect.left;
         this.mouse.y = e.clientY - rect.top;
       });
-      section.addEventListener('mouseleave', () => {
-        this.mouse.x = null;
-        this.mouse.y = null;
-      });
+      if (!isFullPage) {
+        section.addEventListener('mouseleave', () => {
+          this.mouse.x = null;
+          this.mouse.y = null;
+        });
+      }
     }
 
     private init() {

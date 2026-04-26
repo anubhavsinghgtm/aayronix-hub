@@ -9,8 +9,10 @@ import CallToAction from '../components/CallToAction.astro';
   <Header />
   <!-- Hero Section -->
   <section class="about-hero text-center">
-    <div class="container animate-fade-in">
-      <span class="badge">Welcome to Aayronix Hub</span>
+    <!-- Watermark Logo -->
+    <img src="/aayronix_logo.png" alt="" class="hero-watermark" id="heroWatermark" aria-hidden="true" />
+    <div class="container animate-fade-in" style="position: relative; z-index: 2;">
+      <span class="badge">Welcome to AAYRONIX HUB</span>
       <h1 class="title">Delivering Real Impact Through <span class="text-gradient">Talent & Technology</span></h1>
       <p class="subtitle">With over 30 years of combined experience, our founders lead Aayronix Hub in delivering scalable solutions. We help businesses innovate and stay ahead because we understand the pulse and needs of today’s organizations.</p>
     </div>
@@ -119,6 +121,22 @@ import CallToAction from '../components/CallToAction.astro';
   .about-hero {
     padding-top: 160px;
     padding-bottom: var(--spacing-16);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    height: auto;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 1;
+    transition: none; /* JS handles animation via requestAnimationFrame */
+    filter: grayscale(30%) brightness(1.2);
   }
 
   .title {
@@ -139,13 +157,13 @@ import CallToAction from '../components/CallToAction.astro';
   .badge {
     display: inline-block;
     padding: 0.25rem 0.75rem;
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(212, 160, 23, 0.1);
     color: var(--color-primary);
     border-radius: var(--radius-full);
     font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: var(--spacing-6);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(212, 160, 23, 0.2);
   }
 
   .subtitle {
@@ -168,6 +186,7 @@ import CallToAction from '../components/CallToAction.astro';
 
   .padding-box p {
     color: var(--color-text-muted);
+    text-align: justify;
   }
 
   .lead-text {
@@ -329,3 +348,94 @@ import CallToAction from '../components/CallToAction.astro';
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const watermark = document.getElementById('heroWatermark');
+    const headerLogo = document.querySelector('.header .brand-logo');
+    if (!watermark || !headerLogo) return;
+
+    // Store initial watermark position (center of hero)
+    const heroSection = watermark.closest('.about-hero');
+    const initialSize = 420; // matches CSS width
+    const initialOpacity = 0.12;
+
+    function lerp(start, end, t) {
+      return start + (end - start) * t;
+    }
+
+    function animateWatermark() {
+      const heroRect = heroSection.getBoundingClientRect();
+      const headerLogoRect = headerLogo.getBoundingClientRect();
+
+      // Calculate scroll progress within the hero section
+      // 0 = hero fully visible, 1 = hero scrolled past
+      const heroHeight = heroRect.height;
+      const scrolled = Math.max(0, -heroRect.top);
+      const progress = Math.min(1, scrolled / (heroHeight * 0.7));
+
+      if (progress <= 0) {
+        // Reset to initial centered watermark state
+        watermark.style.position = 'absolute';
+        watermark.style.top = '50%';
+        watermark.style.left = '50%';
+        watermark.style.transform = 'translate(-50%, -50%)';
+        watermark.style.width = initialSize + 'px';
+        watermark.style.opacity = initialOpacity;
+        watermark.style.filter = 'grayscale(30%) brightness(1.2)';
+        return;
+      }
+
+      // Target: header logo position
+      const targetWidth = headerLogoRect.width;
+      const targetOpacity = 0;
+
+      // Calculate current watermark center in viewport
+      const heroCenter = {
+        x: heroRect.left + heroRect.width / 2,
+        y: heroRect.top + heroRect.height / 2
+      };
+
+      // Target center (header logo center)
+      const targetCenter = {
+        x: headerLogoRect.left + headerLogoRect.width / 2,
+        y: headerLogoRect.top + headerLogoRect.height / 2
+      };
+
+      // Ease function for smooth deceleration
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      // Interpolate size
+      const currentWidth = lerp(initialSize, targetWidth, eased);
+
+      // Interpolate position offset from center
+      const offsetX = lerp(0, targetCenter.x - heroCenter.x, eased);
+      const offsetY = lerp(0, targetCenter.y - heroCenter.y, eased);
+
+      // Opacity: stay dark, just fade out smoothly as it goes up
+      const currentOpacity = lerp(initialOpacity, 0, eased);
+
+      watermark.style.position = 'absolute';
+      watermark.style.top = '50%';
+      watermark.style.left = '50%';
+      watermark.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px))`;
+      watermark.style.width = currentWidth + 'px';
+      watermark.style.opacity = currentOpacity;
+    }
+
+    // Run on scroll with requestAnimationFrame for smoothness
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          animateWatermark();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Initial call
+    animateWatermark();
+  });
+</script>

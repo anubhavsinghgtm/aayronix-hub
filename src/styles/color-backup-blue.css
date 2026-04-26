@@ -1,0 +1,23 @@
+/* ================================================
+   BACKUP: Original Blue Color Scheme
+   Date: 2026-04-25
+   Restore these values in global.css if client 
+   prefers blue over gold.
+   ================================================ */
+
+:root {
+  /* Brand Colors - Premium Dark Theme with vibrant accents */
+  --color-primary: #3b82f6;      /* Bright Blue */
+  --color-primary-hover: #2563eb;
+  --color-accent: #6ee7b7;       /* Emerald Green accent */
+}
+
+/* Button shadows with blue */
+.btn-primary {
+  color: white;
+  box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.23);
+}
