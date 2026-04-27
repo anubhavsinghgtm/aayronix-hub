@@ -2,12 +2,15 @@
 // Header.astro
 ---
 
+<!-- Independent Floating Logo -->
+<a href="/" class="floating-logo" id="mainLogo">
+  <img src="/aayronix_logo.png" alt="AAYRONIX HUB logo" class="brand-logo" />
+</a>
+
 <header class="header">
   <div class="container header-container">
-    <a href="/" class="logo">
-      <img src="/aayronix_logo.png" alt="Aayronix Hub logo" class="brand-logo" />
-    </a>
     
+
     <nav class="nav-links">
       <a href="/">Home</a>
       <a href="/about">About Us</a>
@@ -55,25 +58,35 @@
   .header-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     height: 100px;
+    position: relative;
   }
 
-  .logo {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--color-text);
+  .floating-logo {
+    position: fixed;
+    top: 15px;
+    left: clamp(1rem, 5%, 3rem); /* Responsive left margin */
+    z-index: 1000; /* Extremely high z-index to stay above everything */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .brand-logo {
-    max-height: 90px;
+  .floating-logo .brand-logo {
+    height: 160px;
     width: auto;
-    display: block;
     object-fit: contain;
-    transform: scale(1.15);
-    transform-origin: left center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+  }
+
+  /* Scrolled State Triggered by Body Class or manually via JS */
+  .floating-logo.scrolled {
+    top: 12px;
+  }
+
+  .floating-logo.scrolled .brand-logo {
+    height: 75px; /* Compact size to fit inside header */
+    filter: none;
   }
 
   .nav-links {
@@ -162,3 +175,23 @@
     }
   }
 </style>
+
+<script>
+  // Add scroll listener to shrink independent logo
+  document.addEventListener('DOMContentLoaded', () => {
+    const floatingLogo = document.getElementById('mainLogo');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        if(floatingLogo) floatingLogo.classList.add('scrolled');
+      } else {
+        if(floatingLogo) floatingLogo.classList.remove('scrolled');
+      }
+    });
+
+    // Run once on load
+    if (window.scrollY > 50 && floatingLogo) {
+      floatingLogo.classList.add('scrolled');
+    }
+  });
+</script>
