@@ -7,76 +7,67 @@ import ParticleBackground from '../../components/ParticleBackground.astro';
 
 const features = [
   {
-    title: "Project-Specific Hiring",
+    title: "A Caring & Personable Approach",
     list: [
-      "Rapid deployment of specialized recruiters.",
-      "Short-term hiring campaigns for urgent requirements.",
-      "Scalable solutions for seasonal or project-based demands."
+      "Open communication between contractors, employers, and Aayronix Hub",
+      "Taking time to understand career goals, values, and personal interests",
+      "Regular check-ins and opportunities for feedback",
+      "Social events to foster stronger connections",
+      "Access to highly qualified talent across industries",
+      "Scalable solutions for short-term and long-term hiring",
+      "Reduced recruiting costs and improved candidate flow",
+      "Data-driven insights for smarter hiring decisions"
     ]
   },
   {
-    title: "Client-Branded Media Strategies",
+    title: "Benefits of Working With Us",
     list: [
-      "Employer branding campaigns to attract top candidates.",
-      "Customized recruitment marketing aligned with your brand voice.",
-      "Social media and digital outreach strategies."
-    ]
-  },
-  {
-    title: "Dedicated Recruitment Staff",
-    list: [
-      "Full-cycle recruitment management.",
-      "Candidate sourcing, screening, and interviewing.",
-      "Seamless integration with your internal HR processes."
-    ]
-  },
-  {
-    title: "Full or Partial HR Management",
-    list: [
-      "End-to-end recruitment lifecycle management.",
-      "Partial outsourcing for specific functions (screening, onboarding, etc.).",
-      "Flexible engagement models to optimize recruitment costs."
-    ]
-  },
-  {
-    title: "Contractor Care & Retention",
-    list: [
-      "Open communication between contractors, employers, and AAYRONIX HUB.",
-      "Regular check-ins and opportunities for feedback and social events.",
-      "Data-driven insights for smarter hiring decisions."
+      "Full-Cycle Recruiting: From sourcing to onboarding, we manage the entire process.",
+      "Candidate Sourcing & Screening: Quick access to critical talent using best-in-class methodologies.",
+      "Variety of Recruitment Options: Flexible support for variable talent needs.",
+      "Reduced Recruiting Costs: Experienced recruiters deployed on-demand to optimize budgets."
     ]
   },
   {
     title: "Hassle-Free Solutions",
     list: [
-      "Streamlined timecard and payroll processes.",
-      "Quality benefits tailored to contractor needs.",
-      "Reduced resource gaps and delivery pains.",
-      "Improved productivity and cost controls."
+      "Streamlined timecard and payroll processes",
+      "Quality benefits tailored to contractor needs",
+      "Reduced resource gaps and delivery pains",
+      "Improved productivity and cost controls"
     ]
   },
   {
-    title: "Why Outsource to AAYRONIX HUB",
+    title: "Our Contract Recruiters Are Experts In",
     list: [
-      "We are a global leader in recruitment outsourcing.",
-      "Access to highly qualified talent across industries.",
-      "Scalable solutions for short-term and long-term hiring.",
-      "Reduced recruiting costs and improved candidate flow.",
-      "Data-driven insights for smarter hiring decisions."
+      "Lead sourcing and selection",
+      "Requirements testing and onboarding",
+      "HR, payroll, and benefits administration",
+      "Performance management and offboarding"
+    ]
+  },
+  {
+    title: "Why Choose Aayronix Hub",
+    list: [
+      "26+ years of experience supporting contractors across industries",
+      "Proven track record in reducing turnover rates",
+      "Personalized, relationship-driven approach",
+      "Trusted partner for startups, mid-market, and Fortune 100 companies"
     ]
   }
 ];
 ---
 
-<BaseLayout title="RPO | AAYRONIX HUB">
+<BaseLayout title="Why Outsource | AAYRONIX HUB">
   <Header />
-  <ParticleBackground particleColor="rgba(249, 115, 22, 0.8)" lineColor="rgba(249, 115, 22, 0.4)" interactiveColor="rgba(253, 186, 116, 1)" fullPage />
+  <ParticleBackground particleColor="rgba(59, 130, 246, 0.8)" lineColor="rgba(59, 130, 246, 0.4)" interactiveColor="rgba(96, 165, 250, 1)" fullPage />
+  
   <!-- Hero Section -->
   <section class="page-hero text-center" style="position: relative; padding-top: 180px; padding-bottom: 80px; overflow: hidden;">
     <div class="container animate-fade-in" style="position: relative; z-index: 2;">
       <span class="badge">Talent Solutions</span>
-      <h1 class="title text-gradient">Recruitment Process Outsourcing</h1>
-      <p class="subtitle" style="color: rgba(255, 255, 255, 0.85); text-shadow: 0 2px 4px rgba(0,0,0,0.5);"><strong style="display: block; margin-bottom: 0.5rem; text-align: center;">Cost-Effective Recruiting Strategies.</strong>Today's talent market is unpredictable and competitive. Our RPO services provide the expertise, tools, and processes to attract, hire, and retain top talent—while saving you time and money.</p>
+      <h1 class="title text-gradient">Why Outsource to AAYRONIX HUB</h1>
+      <p class="subtitle" style="color: rgba(255, 255, 255, 0.85); text-shadow: 0 2px 4px rgba(0,0,0,0.5);"><strong style="display: block; margin-bottom: 0.5rem; text-align: center;">Reduce Turnover, Boost Productivity.</strong>We are a global leader in recruitment outsourcing, trusted by startups, mid-market enterprises, and Fortune 100 companies. At Aayronix Hub, we believe that retaining top talent is more cost-effective than constantly replacing them. That’s why we’ve built a contractor care program designed to nurture relationships, improve satisfaction, and keep your workforce engaged.</p>
     </div>
   </section>
 
@@ -84,7 +75,7 @@ const features = [
   <section class="section" style="margin-top: 5rem;">
     <div class="container">
       <div class="text-center" style="margin-bottom: var(--spacing-12)">
-        <h2>Our Outsourcing Services</h2>
+        <h2>Partner With Us for Success</h2>
         <p style="color: var(--color-text-muted); text-align: center; max-width: 800px; margin: 0 auto;">We simplify contractor management so you can stay focused on your business.</p>
       </div>
       
@@ -100,6 +91,8 @@ const features = [
           </div>
         ))}
       </div>
+      
+     
     </div>
   </section>
 
@@ -110,7 +103,7 @@ const features = [
 <style>
   .text-center { text-align: center; }
   .page-hero { padding-top: 160px; padding-bottom: var(--spacing-16); }
-  .badge { display: inline-block; padding: 0.5rem 1rem; background: rgba(110, 231, 183, 0.1); color: var(--color-accent); border-radius: var(--radius-full); font-size: 1.125rem; font-weight: 700; margin-bottom: var(--spacing-6); }
+  .badge { display: inline-block; padding: 0.5rem 1rem; background: rgba(59, 130, 246, 0.1); color: var(--color-primary); border-radius: var(--radius-full); font-size: 1.125rem; font-weight: 700; margin-bottom: var(--spacing-6); }
   .title { font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: var(--spacing-4); }
   .text-gradient { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .subtitle { font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: var(--color-text-muted); text-align: justify; }

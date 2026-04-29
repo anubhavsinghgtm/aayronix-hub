@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<BaseLayout title="Privacy Policy | AAYRONIX HUB">
+  <Header />
+  <!-- Hero Section -->
+  <section class="page-hero text-center" style="position: relative; padding-top: 180px; padding-bottom: 80px; overflow: hidden;">
+    <div class="container animate-fade-in" style="position: relative; z-index: 2;">
+      <h1 class="title text-gradient">Privacy Policy</h1>
+      <p class="subtitle" style="color: rgba(255, 255, 255, 0.85); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">AAYRONIX HUB</p>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="section" style="margin-top: 2rem; margin-bottom: 5rem;">
+    <div class="container">
+      <div class="content-wrapper glass padding-box animate-fade-in" style="animation-delay: 0.1s; max-width: 900px; margin: 0 auto; line-height: 1.8;">
+        <p><strong>Effective Date: April 29, 2026</strong></p>
+      
+      <p>AAYRONIX HUB (“we,” “our,” “us”) values your trust and is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website www.aayronixhub.com or engage with our services.</p>
+      
+      <h3>1. Information We Collect</h3>
+      <ul>
+        <li><strong>Personal Information:</strong> Name, email address, phone number, company details, and other information you provide through forms or inquiries.</li>
+        <li><strong>Technical Information:</strong> IP address, browser type, device details, and usage data collected automatically when you access our website.</li>
+        <li><strong>Cookies & Tracking:</strong> We use cookies and similar technologies to enhance user experience and analyze website traffic.</li>
+      </ul>
+      
+      <h3>2. How We Use Your Information</h3>
+      <ul>
+        <li>To provide and improve our services.</li>
+        <li>To respond to inquiries and communicate with you.</li>
+        <li>To personalize your experience on our website.</li>
+        <li>To comply with legal and regulatory requirements.</li>
+        <li>For marketing, promotions, and updates (only with your consent).</li>
+      </ul>
+      
+      <h3>3. Sharing of Information</h3>
+      <p>We do not sell or rent your personal information. We may share data with:</p>
+      <ul>
+        <li><strong>Trusted Partners & Service Providers</strong> who assist in delivering our services.</li>
+        <li><strong>Legal Authorities</strong> when required by law or to protect our rights.</li>
+        <li><strong>Business Transfers</strong> in case of mergers, acquisitions, or restructuring.</li>
+      </ul>
+      
+      <h3>4. Data Security</h3>
+      <p>We implement industry-standard measures to protect your information from unauthorized access, disclosure, or misuse. However, no method of transmission over the internet is 100% secure.</p>
+      
+      <h3>5. Your Rights</h3>
+      <p>Depending on your location, you may have rights to:</p>
+      <ul>
+        <li>Access, update, or delete your personal information.</li>
+        <li>Opt out of marketing communications.</li>
+        <li>Request restrictions on how we process your data.</li>
+      </ul>
+      <p>To exercise these rights, contact us at <a href="mailto:info@aayronixhub.com" style="color: var(--color-primary);">info@aayronixhub.com</a>. (Subject - Privacy Policy)</p>
+      
+      <h3>6. Third-Party Links</h3>
+      <p>Our website may contain links to third-party sites. We are not responsible for their privacy practices and encourage you to review their policies.</p>
+      
+      <h3>7. Updates to This Policy</h3>
+      <p>We may update this Privacy Policy from time to time.</p>
+      
+      <h3>8. Contact Us</h3>
+      <p>If you have questions or concerns about this Privacy Policy, please contact: <a href="mailto:info@aayronixhub.com" style="color: var(--color-primary);">info@aayronixhub.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+  <Footer />
+</BaseLayout>
+
+<style>
+  .text-center { text-align: center; }
+  .page-hero { padding-top: 160px; padding-bottom: var(--spacing-16); }
+  .title { font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: var(--spacing-4); }
+  .text-gradient { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .subtitle { font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: var(--color-text-muted); }
+  .padding-box { padding: 4rem 5rem; border-radius: var(--radius-lg); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5); }
+  .content-wrapper h3 { margin-top: var(--spacing-8); margin-bottom: var(--spacing-4); color: var(--color-text); font-size: 1.5rem;}
+  .content-wrapper p { margin-bottom: var(--spacing-4); color: var(--color-text-muted); font-size: 1.05rem; }
+  .content-wrapper ul { margin-bottom: var(--spacing-6); padding-left: 1.5rem; color: var(--color-text-muted); list-style-type: disc; }
+  .content-wrapper li { margin-bottom: 0.5rem; font-size: 1.05rem; }
+  .content-wrapper strong { color: var(--color-text); font-weight: 600; }
+  
+  @media (max-width: 768px) {
+    .padding-box {
+      padding: 2.5rem 1.5rem;
+    }
+  }
+</style>

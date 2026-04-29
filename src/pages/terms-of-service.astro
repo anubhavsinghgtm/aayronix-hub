@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<BaseLayout title="Terms of Service | AAYRONIX HUB">
+  <Header />
+  <!-- Hero Section -->
+  <section class="page-hero text-center" style="position: relative; padding-top: 180px; padding-bottom: 80px; overflow: hidden;">
+    <div class="container animate-fade-in" style="position: relative; z-index: 2;">
+      <h1 class="title text-gradient">Terms of Service</h1>
+      <p class="subtitle" style="color: rgba(255, 255, 255, 0.85); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">AAYRONIX HUB</p>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="section" style="margin-top: 2rem; margin-bottom: 5rem;">
+    <div class="container">
+      <div class="content-wrapper glass padding-box animate-fade-in" style="animation-delay: 0.1s; max-width: 900px; margin: 0 auto; line-height: 1.8;">
+        <p><strong>Effective Date: April 29, 2026</strong></p>
+        
+        <p>Welcome to AAYRONIX HUB (“we,” “our,” “us”). By accessing or using our website www.aayronixhub.com and related services, you agree to comply with and be bound by these Terms of Service. Please read them carefully.</p>
+        
+        <h3>1. Acceptance of Terms</h3>
+        <p>By using our website or services, you acknowledge that you have read, understood, and agree to these Terms. If you do not agree, you must discontinue use immediately.</p>
+        
+        <h3>2. Use of Services</h3>
+        <ul>
+          <li>You agree to use our services only for lawful purposes.</li>
+          <li>You must not engage in activities that disrupt, damage, or impair our website or services.</li>
+          <li>Unauthorized use, including attempts to access restricted areas or misuse of data, is strictly prohibited.</li>
+        </ul>
+        
+        <h3>3. Intellectual Property</h3>
+        <ul>
+          <li>All content, logos, trademarks, and materials on this site are the property of AAYRONIX HUB unless otherwise stated.</li>
+          <li>You may not copy, reproduce, or distribute our content without prior written consent.</li>
+        </ul>
+        
+        <h3>4. User Content</h3>
+        <ul>
+          <li>Any information you provide (such as inquiries, feedback, or submissions) must be accurate and lawful.</li>
+          <li>By submitting content, you grant us a non-exclusive, royalty-free license to use it for business purposes.</li>
+        </ul>
+        
+        <h3>5. Privacy</h3>
+        <p>Your use of our services is also governed by our Privacy Policy, which explains how we collect, use, and protect your information.</p>
+        
+        <h3>6. Third-Party Links</h3>
+        <p>Our website may contain links to third-party sites. We are not responsible for their content, policies, or practices.</p>
+        
+        <h3>7. Limitation of Liability</h3>
+        <ul>
+          <li>We strive to provide accurate and reliable services, but we make no guarantees regarding uninterrupted access or error-free operation.</li>
+          <li>AAYRONIX HUB shall not be liable for any indirect, incidental, or consequential damages arising from the use of our services.</li>
+        </ul>
+        
+        <h3>8. Indemnification</h3>
+        <p>You agree to indemnify and hold harmless AAYRONIX HUB from any claims, damages, or expenses resulting from your misuse of our services.</p>
+        
+        <h3>9. Changes to Terms</h3>
+        <p>We may update these Terms of Service from time to time. Updates will be posted on this page with a revised “Effective Date.”</p>
+        
+        <h3>10. Governing Law</h3>
+        <p>These Terms shall be governed by and construed in accordance with the laws of India, without regard to conflict of law principles.</p>
+        
+        <h3>11. Contact Us</h3>
+        <p>For questions or concerns regarding these Terms, please contact: <a href="mailto:info@aayronixhub.com" style="color: var(--color-primary);">info@aayronixhub.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+  <Footer />
+</BaseLayout>
+
+<style>
+  .text-center { text-align: center; }
+  .page-hero { padding-top: 160px; padding-bottom: var(--spacing-16); }
+  .title { font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: var(--spacing-4); }
+  .text-gradient { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .subtitle { font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: var(--color-text-muted); }
+  .padding-box { padding: 4rem 5rem; border-radius: var(--radius-lg); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5); }
+  .content-wrapper h3 { margin-top: var(--spacing-8); margin-bottom: var(--spacing-4); color: var(--color-text); font-size: 1.5rem;}
+  .content-wrapper p { margin-bottom: var(--spacing-4); color: var(--color-text-muted); font-size: 1.05rem; }
+  .content-wrapper ul { margin-bottom: var(--spacing-6); padding-left: 1.5rem; color: var(--color-text-muted); list-style-type: disc; }
+  .content-wrapper li { margin-bottom: 0.5rem; font-size: 1.05rem; }
+  .content-wrapper strong { color: var(--color-text); font-weight: 600; }
+  
+  @media (max-width: 768px) {
+    .padding-box {
+      padding: 2.5rem 1.5rem;
+    }
+  }
+</style>
