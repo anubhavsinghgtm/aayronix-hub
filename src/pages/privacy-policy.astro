@@ -11,7 +11,7 @@ import CallToAction from '../components/CallToAction.astro';
   <section class="page-hero text-center" style="position: relative; padding-top: 180px; padding-bottom: 80px; overflow: hidden;">
     <div class="container animate-fade-in" style="position: relative; z-index: 2;">
       <h1 class="title text-gradient">Privacy Policy</h1>
-      <p class="subtitle" style="color: rgba(255, 255, 255, 0.85); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">AAYRONIX HUB</p>
+      <p class="subtitle" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);"><b><span class="brand-gold">AAYRON</span><span class="brand-grey">IX HUB</span></b></p>
     </div>
   </section>
 
@@ -81,6 +81,23 @@ import CallToAction from '../components/CallToAction.astro';
   .title { font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: var(--spacing-4); }
   .text-gradient { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .subtitle { font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: var(--color-text-muted); }
+
+  .brand-gold {
+    display: inline-block;
+    background: linear-gradient(135deg, #D4A017 0%, #F5C842 40%, #E8B923 60%, #C8921A 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: #D4A017 !important;
+    font-weight: 800;
+  }
+
+  .brand-grey {
+    display: inline-block;
+    color: #cbd5e1 !important;
+    -webkit-text-fill-color: #cbd5e1 !important;
+    font-weight: 800;
+  }
   .padding-box { padding: 4rem 5rem; border-radius: var(--radius-lg); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5); }
   .content-wrapper h3 { margin-top: var(--spacing-8); margin-bottom: var(--spacing-4); color: var(--color-text); font-size: 1.5rem;}
   .content-wrapper p { margin-bottom: var(--spacing-4); color: var(--color-text-muted); font-size: 1.05rem; }
