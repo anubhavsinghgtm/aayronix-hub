@@ -12,7 +12,7 @@ import CallToAction from '../components/CallToAction.astro';
     <!-- Watermark Logo -->
     <img src="/aayronix_logo.png" alt="" class="hero-watermark" id="heroWatermark" aria-hidden="true" />
     <div class="container animate-fade-in" style="position: relative; z-index: 2;">
-      <span class="badge">Welcome to AAYRONIX HUB</span>
+      <span class="badge">Welcome to <span class="brand-gold">AAYRON</span><span class="brand-grey">IX HUB</span></span>
       <h1 class="title">Delivering Real Impact Through <span class="text-gradient">Talent & Technology</span></h1>
       <p class="subtitle">With over 30 years of combined experience, our founders lead AAYRONIX HUB in delivering scalable solutions. We help businesses innovate and stay ahead because we understand the pulse and needs of today’s organizations.</p>
     </div>
@@ -75,17 +75,17 @@ import CallToAction from '../components/CallToAction.astro';
       
       <div class="divisions-grid">
         <div class="division-card glass animate-fade-in" style="animation-delay: 0.1s;">
-          <h3 class="text-gradient">AAYRONIX HUB Digital</h3>
+          <h3 class="text-gradient"><span class="brand-gold">AAYRON</span><span class="brand-grey">IX HUB</span> Digital</h3>
           <p>Mobile-first and cloud-first solutions built on emerging technologies.</p>
         </div>
         
         <div class="division-card glass animate-fade-in" style="animation-delay: 0.2s;">
-          <h3 class="text-gradient">AAYRONIX HUB Security</h3>
+          <h3 class="text-gradient"><span class="brand-gold">AAYRON</span><span class="brand-grey">IX HUB</span> Security</h3>
           <p>Multi-layered cybersecurity strategies to protect your business.</p>
         </div>
 
         <div class="division-card glass animate-fade-in" style="animation-delay: 0.3s;">
-          <h3 class="text-gradient">AAYRONIX HUB Talent</h3>
+          <h3 class="text-gradient"><span class="brand-gold">AAYRON</span><span class="brand-grey">IX HUB</span> Talent</h3>
           <p>Recruitment and staffing solutions to build the leadership and teams you need.</p>
         </div>
       </div>
@@ -99,7 +99,7 @@ import CallToAction from '../components/CallToAction.astro';
         <img src="/contractor_handshake_faces.png?v=1" alt="Trusted Contractor Partnership" />
       </div>
       <div class="cc-content animate-fade-in" style="animation-delay: 0.2s;">
-        <h2>AAYRONIX HUB<br><span class="text-gradient">Contractor Care</span></h2>
+        <h2><span class="brand-gold">AAYRON</span><span class="brand-grey">IX HUB</span><br><span class="text-gradient">Contractor Care</span></h2>
         <p>We treat our talent as partners. With 25+ years of experience supporting contractors across industries, we have a proven track record in reducing turnover rates using a personalized, relationship-driven approach.</p>
         <div class="trust-badge">
            <strong>Trusted partner for startups, mid-market, and Fortune 100 companies.</strong>
@@ -152,6 +152,23 @@ import CallToAction from '../components/CallToAction.astro';
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .brand-gold {
+    display: inline-block;
+    background: linear-gradient(135deg, #D4A017 0%, #F5C842 40%, #E8B923 60%, #C8921A 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: #D4A017 !important;
+    font-weight: 800;
+  }
+
+  .brand-grey {
+    display: inline-block;
+    color: #cbd5e1 !important;
+    -webkit-text-fill-color: #cbd5e1 !important;
+    font-weight: 800;
   }
 
   .badge {
